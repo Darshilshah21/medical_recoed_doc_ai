@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Medical Records DocAI</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>🩺 Medical Records DocAI</h1>
+
+            <div class="card">
+                <h2>Select Patient</h2>
+                <select id="patientSelect">
+                {% for p in patients %}
+                <option value="{{p}}">{{p}}</option>
+                {% endfor %}
+                </select>
+            </div>
+
+            <div class="card">
+                <h2>Upload Medical Document</h2>
+                <input type="file" id="file">
+                <button id="uploadBtn" onclick="uploadFile()">Upload</button>
+                <p id="uploadStatus"></p>
+                <pre id="uploadResult"></pre>
+            </div>
+
+            <div class="card">
+                <h2>Search Medical Records</h2>
+                <input type="text" id="searchBox" placeholder="Search medical records">
+                <button onclick="searchDocs()">Search</button>
+                <pre id="searchResult"></pre>
+            </div>
+
+            <div class="card">
+                <h2>Ask Question About Patient</h2>
+                <input type="text" id="questionBox" placeholder="Ask about the patient">
+                <button onclick="askQuestion()">Ask</button>
+                <pre id="answerResult"></pre>
+            </div>
+
+        </div>
+        <script src="/static/js/main.js"></script>
+    </body>
+</html>
