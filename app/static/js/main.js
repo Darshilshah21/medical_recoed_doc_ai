@@ -1,29 +1,3 @@
-// async function uploadFile(){
-
-// let fileInput = document.getElementById("file")
-
-// let file = fileInput.files[0]
-
-// if(!file){
-// alert("Please select a file")
-// return
-// }
-
-// let formData = new FormData()
-
-// formData.append("file", file)
-
-// let response = await fetch("/upload",{
-// method:"POST",
-// body:formData
-// })
-
-// let data = await response.json()
-
-// document.getElementById("uploadResult").innerText = JSON.stringify(data,null,2)
-
-// }
-
 async function uploadFile(){
     let fileInput = document.getElementById("file")
     let file = fileInput.files[0]
@@ -88,44 +62,3 @@ async function askQuestion(){
     document.getElementById("answerResult").innerText=data.answer
 }
 
-// async function searchDocs(){
-
-// let query = document.getElementById("searchBox").value
-
-// let response = await fetch("/search?q="+query)
-
-// let data = await response.json()
-
-// document.getElementById("searchResult").innerText = JSON.stringify(data,null,2)
-
-// }
-
-
-
-// async function askQuestion(){
-
-// let question = document.getElementById("questionBox").value
-
-// let response = await fetch("/ask",{
-
-// method:"POST",
-
-// headers:{
-
-// "Content-Type":"application/json"
-
-// },
-
-// body:JSON.stringify({
-
-// question:question
-
-// })
-
-// })
-
-// let data = await response.json()
-
-// document.getElementById("answerResult").innerText = data.answer
-
-// }
