@@ -88,36 +88,36 @@ def extract_clinical_information(text):
 """
     # openai
 
-    # response = client.chat.completions.create(
-    #     model="gpt-4o-mini",
-    #     response_format={"type":"json_object"},
-    #     messages=[{"role":"user","content":prompt}]
-    # )
-    # return json.loads(response.choices[0].message.content)
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        response_format={"type":"json_object"},
+        messages=[{"role":"user","content":prompt}]
+    )
+    return json.loads(response.choices[0].message.content)
 
     # gemini
 
-    response = client_gemini.models.generate_content(
-        model="gemini-2.0-flash-lite",
-        contents=[
-            {
-                "role":"user",
-                "parts":[{"text":prompt}]
-            }
-        ]
-    )
-    output = response.text
-    output = output.replace("```json","").replace("```","")
-    try:
-        return json.loads(output)
-    except:
-        return {
-            "diagnoses": [],
-            "medications": [],
-            "lab_results": [],
-            "allergies": [],
-            "vitals": {}
-        }
+    # response = client_gemini.models.generate_content(
+    #     model="gemini-2.0-flash-lite",
+    #     contents=[
+    #         {
+    #             "role":"user",
+    #             "parts":[{"text":prompt}]
+    #         }
+    #     ]
+    # )
+    # output = response.text
+    # output = output.replace("```json","").replace("```","")
+    # try:
+    #     return json.loads(output)
+    # except:
+    #     return {
+    #         "diagnoses": [],
+    #         "medications": [],
+    #         "lab_results": [],
+    #         "allergies": [],
+    #         "vitals": {}
+    #     }
 
 
 # Store patient record
@@ -191,22 +191,22 @@ def ask_question(question, patient_id):
 """
     # opanai
 
-    # response = client.chat.completions.create(
-    #     model="gpt-4o-mini",
-    #     messages=[{"role":"user","content":prompt}]
-    # )
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role":"user","content":prompt}]
+    )
 
-    # return response.choices[0].message.content
+    return response.choices[0].message.content
 
     # gemini
 
-    response = client_gemini.models.generate_content(
-        model="gemini-2.0-flash-lite",
-        contents=[
-            {
-                "role":"user",
-                "parts":[{"text":prompt}]
-            }
-        ]
-    )
-    return response.text
+    # response = client_gemini.models.generate_content(
+    #     model="gemini-2.0-flash-lite",
+    #     contents=[
+    #         {
+    #             "role":"user",
+    #             "parts":[{"text":prompt}]
+    #         }
+    #     ]
+    # )
+    # return response.text
